@@ -1,0 +1,51 @@
+<view class="swiper-container">
+  <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
+    <swiper-item>
+      <image mode="aspectFill" bindtap="tapBanner"src="{{lb1}}" />
+    </swiper-item>
+    <swiper-item>
+      <image mode="aspectFill" bindtap="tapBanner"src="{{lb2}}" />
+    </swiper-item>
+    <swiper-item>
+      <image mode="aspectFill" bindtap="tapBanner"src="{{lb3}}" />
+    </swiper-item>
+  </swiper>
+  <view wx:if="{{goodsDynamic}}" class="goodsDynamic">
+    <swiper class="swiper2" autoplay circular vertical>
+      <navigator wx:for="{{goodsDynamic}}" wx:key="index" url="{{ goodsDetailPage.url(item)}}">
+        <swiper-item>
+          <view class="goodsDynamic-item">
+            <image mode="aspectFill" src="{{item.avatarUrl}}"></image>
+            <text>{{item.nick}} 购买了 {{item.goodsName}}</text>
+          </view>
+        </swiper-item>
+      </navigator>
+    </swiper>
+  </view>
+</view>
+<view class="category-container">
+  <view class="category-box">
+    <view class="category-list">
+      <view class="category-column">
+        <image bindtap="addBill" mode="aspectFill" class="category-imgbox" src="../../images/nav/money.jpg"></image>
+        <view class="category-title">账户充值</view>
+      </view>
+    </view>
+  </view>
+  <view class="notice-box">
+  <swiper class="notice_swiper" vertical autoplay circular interval="8000">
+    <swiper-item>
+      <van-notice-bar wx:if="{{true}}" mode="link" text="全场不要钱啦！" background="#FFFFFF"
+        data-id="1" speed="10" bind:click="goNotice">
+        <image slot="left-icon" class="notice-icon" src="../../images/notice.png"></image>
+      </van-notice-bar>
+    </swiper-item>
+  </swiper>
+</view>
+</view>
+<view class="remark">
+  <image mode="aspectFill" class="remark" bindtap="tapBanner"src="{{lb1}}" />
+  <image mode="aspectFill" class="remark" bindtap="tapBanner"src="{{lb2}}" />
+  <image mode="aspectFill" class="remark" bindtap="tapBanner"src="{{lb3}}" />
+</view>
+

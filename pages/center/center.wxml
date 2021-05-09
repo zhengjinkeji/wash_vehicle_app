@@ -1,0 +1,54 @@
+<block wx:if="{{ userInfoStatus == 0 }}">
+  <view class="login-box">
+    <image class="logo" src="/images/wx.jpg" mode="widthFix"></image>
+    <view class="line"></view>
+    <view class="title">申请获取以下权限</view>
+    <view class="profile">获得你的公开信息(昵称，头像等)</view>
+    <view class="btn">
+      <van-button  type="primary" block round bind:click="getUserProfile"> 获取头像昵称 </van-button>
+    </view>
+  </view>
+</block>  
+<block wx:if="{{ userInfoStatus == 1 }}">
+  <view class="header-box">
+    <image class="avatar" src="{{ userInfo.avatarUrl }}" mode="aspectFill"></image>
+    <view class="r">
+      <view class="uid">用户ID: {{userAccounts.userId}}</view>
+      <view class="nick">{{ userInfo.nickName }}</view>
+    </view>
+</view>
+  <view class="asset">
+    <view class='item' bindtap='goAsset'>
+      <view class="amount">{{ userAccounts.money }}</view>
+      <view>余额</view>
+    </view>
+    <view class='item right' bindtap='goAsset'>
+      <view class="amount">{{ userAccounts.ownerName }}</view>
+      <view>车主</view>
+    </view>
+    <view class='item right' bindtap='goScore'>
+      <view class="amount">{{ userAccounts.license }}</view>
+      <view>车牌</view>
+    </view>
+    <view class='item right' bindtap="gogrowth">
+      <view class="amount">{{ userAccounts.mobilePhone }}</view>
+      <view>电话</view>
+    </view>
+  </view>
+  <van-cell title="常用功能" />
+  <van-grid clickable>
+    <van-grid-item icon="paid" text="车牌加绑" url="/pages/addcar/addcar" />
+    <van-grid-item icon="balance-list-o" text="资金明细" url="/pages/asset/asset" />
+    <van-grid-item icon="bill-o" text="洗车记录" url="/pages/invoice/apply" />
+    <!-- <van-grid-item icon="bill-o" text="开票记录" url="/pages/invoice/list" />
+    <van-grid-item icon="coupon-o" text="优惠券" url="/pages/coupons/index" link-type="switchTab" />
+    <van-grid-item icon="calendar-o" text="签到赚积分" url="/pages/sign/index" /> -->
+  </van-grid>
+  <van-cell-group title="其他功能">
+    <!-- <van-cell title="积分券兑换积分" is-link url="/pages/score-excharge/index" />
+    <van-cell title="积分兑换成长值" is-link url="/pages/score-excharge/growth" />
+    <van-cell title="帮助中心" is-link url="/pages/help/index" />
+    <van-cell title="个人信息" is-link url="/pages/my/info-menu" /> -->
+    <van-cell title="系统设置" is-link url="/pages/setting/setting" />
+  </van-cell-group>
+</block>

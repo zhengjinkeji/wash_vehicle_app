@@ -1,0 +1,14 @@
+<view class="row">
+      <view class="row-cell-left">
+       <view class="">购买洗车金:</view>
+      </view>
+      <view class="row-cell">
+         <input class="" placeholder="请输入购买金额" type="text" value="{{money}}" focus="true" bind:input="getInputMoney" name="money"/>
+      </view>
+  </view>
+<view class="block-btn btn">
+  <van-button type="primary" block bind:click="addBill">确认购买</van-button>
+</view>
+<!-- <view class="block-btn btn">
+  <textarea class="remark">如果绑定车牌较多(比如公司账户名下绑定多辆),请联系商家,快速绑定!</textarea>
+</view> -->

@@ -1,0 +1,63 @@
+<!--
+变量说明：
+showTopTips ： 是否显示提示信息
+errorMsg ： 错误信息
+windowHeight ：设备的窗口的高度
+windowWidth ： 设备的窗口的宽度
+account ： 账号
+password ：密码
+subPassword ：确认密码 
+-->
+<view class="page__bd" >
+ <button open-type="getUserInfo" wx:if="{{!avatarUrl}}" bindgetuserinfo="getUserInfo"> 授权获取头像昵称 </button>
+  <view style="position:absolute;top:{{windowHeight * 0.06}}px;" >
+    
+    <image wx:if="{{avatarUrl}}" src="{{avatarUrl}}" style="width: {{windowWidth * 0.3}}px;height:{{windowWidth * 0.3}}px; margin-left:{{windowWidth * 0.35}}px;border-radius:{{windowWidth * 0.2}}px;"></image>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="login_info" style="top:{{windowHeight * 0.35}}px;width: {{windowWidth * 0.92}}px;">
+      <view class="login_form">
+       <view class="row">
+          <view class="row-cell-left">
+            <view class="">姓名:</view>
+          </view>
+          <view class="row-cell">
+            <input class="" placeholder="姓名" type="text" maxlength="20" value="{{ownerName}}" focus="true" name="ownerName"/>
+          </view>
+        </view>
+        <view class="row">
+          <view class="row-cell-left">
+            <view class="">车牌:</view>
+          </view>
+          <view class="row-cell">
+            <input class="" placeholder="请输入绑定车牌" type="text" maxlength="7" value="{{license}}" focus="true" name="license"/>
+          </view>
+        </view>
+        <view class="row">
+          <view class="row-cell-left">
+            <view class="">手机号:</view>
+          </view>
+          <view class="">
+            <input class="" placeholder="请输入手机号" type="text" maxlength="11" value="{{mobilePhone}}"  bind:input="test"  name="mobilePhone"/>
+          </view>
+        </view>
+        <view class="row">
+          <view class="row-cell-left">
+            <view class="">验证码:</view>
+          </view>
+          <view class="">
+            <input class="" placeholder="请输入验证码" type="text" maxlength="11" value="{{inputCode}}" bind:input="getInputCode" name="inputCode"/>
+          </view>
+        </view>
+        <view class="smsCode">
+          <view class="">
+            <button bindtap="sendSmsCode"  disabled='{{isDisable}}' class="warning">{{getSmsCode}}</button>
+          </view>
+        </view>
+        <view class="btn"> 
+          <button style="width:80%;" type="primary" formType="submit">注册</button> 
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

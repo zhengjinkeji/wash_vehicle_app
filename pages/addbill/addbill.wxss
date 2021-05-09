@@ -1,0 +1,21 @@
+.btn {
+  margin-top: 32rpx;
+}
+.remark {
+  position:relative;
+  top:100px;
+  margin-top: 60px;
+  width:57%;
+  margin:0 auto;
+  font-size: 13px;
+  color: red;
+}
+.row{
+  display: flex;
+  padding: 10px;
+  border-bottom: 1rpx solid #eee;
+}
+.row-cell-left{
+  padding-left: 10px;
+  width: 30%;
+}

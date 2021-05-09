@@ -1,0 +1,16 @@
+<view class="row">
+      <view class="row-cell-left">
+       <view class="">车牌:</view>
+      </view>
+      <view class="row-cell">
+         <input class="" placeholder="请输入加绑车牌" type="text" maxlength="7" value="{{license}}" focus="true" bind:input="getInputLicense" name="license"/>
+      </view>
+  </view>
+<view class="block-btn btn">
+  <van-button type="primary" block bind:click="bindSave">确认绑定</van-button>
+</view>
+<!-- <view class="block-btn btn">
+  <textarea class="remark">如果绑定车牌较多(比如公司账户名下绑定多辆),请联系商家,快速绑定!</textarea>
+</view> -->
+
+ 
