@@ -31,6 +31,14 @@
     </button>
   </form> -->
 </view>
+<scroll-view scroll-x class="bg-white nav">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub {{activeIndex == index ?'text-red cur':''}}" wx:for="{{tabs}}" wx:key="index" bindtap="tabClick"
+		 data-id="{{index}}" id="{{index}}">
+			1111111
+		</view>
+	</view>
+</scroll-view>
 <view class="page">
   <view class="page__bd">
     <view class="weui-tab">

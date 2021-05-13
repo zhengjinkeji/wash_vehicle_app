@@ -64,9 +64,7 @@ App({
     userOpenId:null,
     userInfo: null,
     url:"http://localhost:9666/",
-    //url:'https://shq.mynatapp.cc/',
-    //定义租户id
-    tenantId:'草',
+    url:"http://gaesh.com/wash",
     appId:null,
     appSecret:'',
     userOpenId:'',

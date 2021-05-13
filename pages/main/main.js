@@ -62,6 +62,18 @@ Page({
            }
         }
       }
+    });
+    wx.request({
+      url: app.globalData.url+"sysAbout/querySysPara?tenantId="+app.globalData.tenantId+"&paraId=1009",
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+        that.setData({
+          chargeFlag:res.data.map.defaultValue
+        })
+      }
     })
   },
   /**

@@ -26,7 +26,7 @@
 <view class="category-container">
   <view class="category-box">
     <view class="category-list">
-      <view class="category-column">
+      <view wx:if="{{chargeFlag==1}}" class="category-column">
         <image bindtap="addBill" mode="aspectFill" class="category-imgbox" src="../../images/nav/money.jpg"></image>
         <view class="category-title">账户充值</view>
       </view>
@@ -35,7 +35,7 @@
   <view class="notice-box">
   <swiper class="notice_swiper" vertical autoplay circular interval="8000">
     <swiper-item>
-      <van-notice-bar wx:if="{{true}}" mode="link" text="全场不要钱啦！" background="#FFFFFF"
+      <van-notice-bar wx:if="{{true}}" mode="link" text="新店开张！" background="#FFFFFF"
         data-id="1" speed="10" bind:click="goNotice">
         <image slot="left-icon" class="notice-icon" src="../../images/notice.png"></image>
       </van-notice-bar>
@@ -44,8 +44,6 @@
 </view>
 </view>
 <view class="remark">
-  <image mode="aspectFill" class="remark" bindtap="tapBanner"src="{{lb1}}" />
-  <image mode="aspectFill" class="remark" bindtap="tapBanner"src="{{lb2}}" />
-  <image mode="aspectFill" class="remark" bindtap="tapBanner"src="{{lb3}}" />
+  <image class="remark" src="../../images/act.jpg" />
 </view>
 
