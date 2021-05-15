@@ -1,11 +1,9 @@
-const WXAPI = require('apifm-wxapi')
-const wxpay = require('../../utils/pay.js')
 const app = getApp();
 
 
 Page({
   data: {
-    
+    carlist:[{val:"豫V63183",adddate:"2021-05-15 22:11:55"},{val:"豫V63183",adddate:"2021-05-15 22:11:55"}]
   },
   getInputLicense:function(e){
     this.setData({

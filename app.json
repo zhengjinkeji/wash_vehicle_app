@@ -1,9 +1,20 @@
 {
   "pages": [
-    "pages/main/main",
+    "pages/index/index",
+    "pages/setting/setting",
+    "pages/about/about",
+    "pages/addbill/addbill",
     "pages/center/center",
+    "pages/apply/index",
+    "pages/addcar/addcar",
+    "pages/asset/asset",
+    "pages/notice/index",
+    "pages/goods-details/index",
     "pages/logs/logs",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/notice/show",
+    "pages/about/lxwm",
+    "pages/yhq/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,7 +31,7 @@
     "backgroundColor": "#fff",
     "list": [
       {
-        "pagePath": "pages/main/main",
+        "pagePath": "pages/index/index",
         "iconPath": "images/nav/home-off.png",
         "selectedIconPath": "images/nav/home-on.png",
         "text": "首页"
@@ -34,7 +45,6 @@
     ]
   },
   "usingComponents": {
-
     "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-search": "@vant/weapp/search/index",
     "van-divider": "@vant/weapp/divider/index",
@@ -70,6 +80,5 @@
     "van-image": "@vant/weapp/image/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

@@ -1,16 +1,26 @@
-<view class="row">
-      <view class="row-cell-left">
-       <view class="">车牌:</view>
-      </view>
-      <view class="row-cell">
-         <input class="" placeholder="请输入加绑车牌" type="text" maxlength="7" value="{{license}}" focus="true" bind:input="getInputLicense" name="license"/>
-      </view>
+<view wx:if="{{carlist}}" wx:for="{{carlist}}">
+  <view class="row">
+    <view class="row-cell-left">
+      <view class="val">{{item.val}}</view>
+    </view>
+    <view class="row-cell">
+      <view class="">{{item.adddate}}</view>
+    </view>
   </view>
-<view class="block-btn btn">
-  <van-button type="primary" block bind:click="bindSave">确认绑定</van-button>
 </view>
-<!-- <view class="block-btn btn">
-  <textarea class="remark">如果绑定车牌较多(比如公司账户名下绑定多辆),请联系商家,快速绑定!</textarea>
-</view> -->
+<view  wx:if="{{carlist.length<3}}" class="row">
+  <view class="row-cell2">
+      <input class="addcar" placeholder="请输入加绑车牌，最多三个" type="text" maxlength="101" value="{{license}}" focus="true" bind:input="getInputLicense" name="license"/>
+  </view>
+</view>
+<view wx:if="{{carlist.length<3}}" class="block-btn btn">
+  <van-button type="primary" block bind:click="bindSave">确认添加</van-button>
+</view>
+<view class="row">
+  <text class="remark">
+  1、更改车牌请联系管理员！
+  2、如果绑定车牌较多(比如公司账户名下绑定多辆),请联系商家,快速绑定!
+  </text>
+</view>
 
  

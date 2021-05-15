@@ -2,89 +2,55 @@
 
 <view class="asset">
   <view class='item right'>
-    <view>可用余额(元)</view>
-    <view>1000</view>
+    <view>购买金额(元)</view>
+    <view>2000</view>
   </view>
-  <!-- <view class='item'>
-    <view>冻结金额(元)</view>
-    <view>{{freeze}}</view>
-  </view> -->
-   <!-- <view class='item right'>
-   <view>累计消费(元)</view>
-    <view>{{totleConsumed}}</view>
+   <view class='item'>
+    <view>剩余金额(D币)</view>
+    <view>1200</view>
+  </view> 
+  <view class='item right'>
+   <view>累计消费(D币)</view>
+    <view>3200</view>
   </view>
 </view>
 <view class='btn-view'>
-  <!-- <form bindsubmit="recharge" report-submit="true">
+  <form bindsubmit="recharge" report-submit="true">
     <button class="btn" type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       充值
     </button>
   </form>
-  <form bindsubmit="payDeposit" report-submit="true">
+  <!-- <form bindsubmit="payDeposit" report-submit="true">
     <button class='btn' type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       押金
     </button>
-  </form> -->
-  <!-- <form bindsubmit="withdraw" report-submit="true">
+  </form>
+   <form bindsubmit="withdraw" report-submit="true">
     <button class='btn' type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       提现
     </button>
   </form> -->
 </view>
-<scroll-view scroll-x class="bg-white nav">
-	<view class="flex text-center">
-		<view class="cu-item flex-sub {{activeIndex == index ?'text-red cur':''}}" wx:for="{{tabs}}" wx:key="index" bindtap="tabClick"
-		 data-id="{{index}}" id="{{index}}">
-			1111111
-		</view>
-	</view>
-</scroll-view>
-<view class="page">
+
+ <view class="page">
   <view class="page__bd">
     <view class="weui-tab">
-      <view class="weui-navbar">
-        <block wx:for="{{tabs}}" wx:key="*this">
-          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
-          </view>
-        </block>
-        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-      </view>
+
       <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="weui-tab__content">
           <view class='no-data' wx:if="{{!cashlogs}}">暂无资金明细~</view>
           <view class='cashlogs' wx:if="{{cashlogs}}" wx:for="{{cashlogs}}" wx:key="{{index}}">
             <view class='profile'>
               <view class='typeStr'>{{ item.typeStr }}</view>
               <view class='dateAdd'>{{ item.dateAdd }}</view>
             </view>
-            <view class='amount' style="color: {{ (item.behavior ==0 ) ? 'red' : 'green' }}"> {{ (item.behavior ==0 ) ? '+' : '-' }} {{ item.amount }} </view>
-          </view>
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class='no-data' wx:if="{{!withDrawlogs}}">暂无提现记录~</view>
-          <view class='cashlogs' wx:if="{{withDrawlogs}}" wx:for="{{withDrawlogs}}" wx:key="{{index}}">
-            <view class='profile'>
-              <view class='typeStr'>{{ item.statusStr }}</view>
-              <view class='dateAdd'>{{ item.dateAdd }}</view>
-            </view>
-            <view class='amount' style="color: red"> {{ item.money }} </view>
-          </view>
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-          <view class='no-data' wx:if="{{!depositlogs}}">暂无押金记录~</view>
-          <view class='cashlogs' wx:if="{{depositlogs}}" wx:for="{{depositlogs}}" wx:key="{{index}}">
-            <view class='profile'>
-              <view class='typeStr'>{{ item.statusStr }}</view>
-              <view class='dateAdd'>{{ item.dateAdd }}</view>
-            </view>
-            <view class='amount' style="color: red"> {{ item.amount }} </view>
+            <view class='amount' style="color: green">+ {{ item.amount }}元 </view>
           </view>
         </view>
       </view>
     </view>
   </view>
-</view>
+</view> 
 
 <template is="apifmLogin" data="{{wxlogin: wxlogin}}" />
 <float-menu /> 

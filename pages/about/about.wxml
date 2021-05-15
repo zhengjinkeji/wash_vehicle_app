@@ -1,4 +1,0 @@
-<van-empty wx:if="{{!cmsPageDetail}}" description="自助洗车,自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车自助洗车" />
-<view wx:else class="content">
-  <parser html="{{cmsPageDetail.info.content}}" />
-</view>

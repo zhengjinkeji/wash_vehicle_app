@@ -1,5 +1,5 @@
 const app = getApp()
-const WXAPI = require('apifm-wxapi')
+// const WXAPI = require('apifm-wxapi')
 // const AUTH = require('../../utils/auth')
 
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
@@ -11,27 +11,23 @@ Page({
    */
   data: {
     wxlogin: true,
-    balance: 0.00,
-    freeze: 0,
-    score: 0,
-    score_sign_continuous: 0,
-    cashlogs: undefined,
-
-    tabs: ["充值明细", "消费明细"],
-    activeIndex: 0,
-    sliderOffset: 0,
-    sliderLeft: 0,
-
-    withDrawlogs: undefined,
-    depositlogs: undefined,
-
-    rechargeOpen: false // 是否开启充值[预存]功能
+    rechargeOpen: false, // 是否开启充值[预存]功能,
+    cashlogs:[
+      {typeStr:"充值",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"购买洗车",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"充值",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"购买洗车",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"充值",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"购买洗车",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"充值",dateAdd:"2021-05-13 22:38:39",amount:100},
+      {typeStr:"购买洗车",dateAdd:"2021-05-13 22:38:39",amount:100}]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    return
     const that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -54,6 +50,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    return
     AUTH.checkHasLogined().then(isLogined => {
       this.setData({
         wxlogin: isLogined

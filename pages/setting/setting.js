@@ -9,7 +9,7 @@ Page({
     })
   },
   onShow: function () {
-    this.getUserApiInfo()
+    //this.getUserApiInfo()
   },
   async getUserApiInfo() {
     const res = await WXAPI.userDetail(wx.getStorageSync('token'))

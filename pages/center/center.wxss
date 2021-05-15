@@ -33,6 +33,7 @@ page,view,image,input {
   width: 100vw;
   display: flex;
   border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   padding-top:20rpx;
   padding-bottom:20rpx;
 }

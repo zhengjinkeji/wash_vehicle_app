@@ -12,7 +12,7 @@ Page({
   },
 
   getUserProfile(e) {
-    console.log(111111);
+  
     let that = this
     wx.getUserProfile({
       lang: 'zh_CN',
@@ -58,6 +58,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    return
     var isAuth = wx.getStorageSync('isAuth');
     let that = this
     console.log("app.globalData.isAuth="+isAuth);

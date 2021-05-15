@@ -3,12 +3,8 @@
 }
 .remark {
   position:relative;
-  top:100px;
-  margin-top: 60px;
-  width:57%;
   margin:0 auto;
-  font-size: 13px;
-  color: red;
+  font-size: 24rpx;
 }
 .row{
   display: flex;
@@ -17,5 +13,23 @@
 }
 .row-cell-left{
   padding-left: 10px;
-  width: 30%;
+  width: 60%;
+}
+.row-cell{
+ 
+  width: 35%;
+  font-size: 24rpx;
+}
+.val{
+ text-align: center;
+}
+
+.row-cell2{
+
+  width: 100%;
+  font-size: 24rpx;
+}
+.addcar{
+  text-align: center;
+  font-size: 24rpx;
 }
