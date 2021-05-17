@@ -3,19 +3,19 @@
 <view class="asset">
   <view class='item right'>
     <view>购买金额(元)</view>
-    <view>2000</view>
+    <view>{{totalCharge}}</view>
   </view>
    <view class='item'>
-    <view>剩余金额(D币)</view>
-    <view>1200</view>
+    <view>剩余金额(元)</view>
+    <view>{{money}}</view>
   </view> 
   <view class='item right'>
-   <view>累计消费(D币)</view>
-    <view>3200</view>
+   <view>累计消费(元)</view>
+    <view>{{totalCost}}</view>
   </view>
 </view>
 <view class='btn-view'>
-  <form bindsubmit="recharge" report-submit="true">
+  <form bindtap="addBill" report-submit="true">
     <button class="btn" type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       充值
     </button>
@@ -41,10 +41,11 @@
           <view class='no-data' wx:if="{{!cashlogs}}">暂无资金明细~</view>
           <view class='cashlogs' wx:if="{{cashlogs}}" wx:for="{{cashlogs}}" wx:key="{{index}}">
             <view class='profile'>
-              <view class='typeStr'>{{ item.typeStr }}</view>
-              <view class='dateAdd'>{{ item.dateAdd }}</view>
+              <view  wx:if="{{ item.type==1 }}" class='typeStr'>充值</view>
+              <view  wx:if="{{ item.type==2 }}" class='typeStr'>消费</view>
+              <view class='dateAdd'>{{ item.create_date}}</view>
             </view>
-            <view class='amount' style="color: green">+ {{ item.amount }}元 </view>
+            <view class='amount' style="color: green">+ {{ item.money }}元 </view>
           </view>
         </view>
       </view>

@@ -19,7 +19,6 @@ App({
           console.log(err);
         }
       })
-      return
     var appSecret = '';
     const s = wx.getAccountInfoSync();
     console.log(s.miniProgram.appId);
@@ -40,7 +39,7 @@ App({
           success (res) {
             console.log("res"+res.data.map)
             if(res.data.code==0){
-              that.globalData.appSecret = res.data.map.defaultValue
+            that.globalData.appSecret = res.data.map.defaultValue
               // 登录
             wx.login({
           
@@ -85,8 +84,8 @@ App({
   globalData: {
     userOpenId:null,
     userInfo: null,
-    url:"http://localhost:9666/",
-    url:"http://gaesh.com/wash",
+    //url:"http://121.4.58.214/guns/",
+    url:"https://gaesh.com/guns/",
     appId:null,
     appSecret:'',
     userOpenId:'',

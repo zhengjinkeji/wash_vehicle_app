@@ -1,0 +1,49 @@
+<import src="/template/login/index.wxml" />
+<view class="container">
+  <scroll-view class="scroll-container" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" bindscroll="bindscroll">
+    <view class="swiper-container" id="swiper-container">
+      <swiper class="swiper_box" indicator-dots="true" indicator-active-color="#fff"
+        autoplay="true" circular>
+        <swiper-item wx:for="{{goodsDetail.basicInfo.pics}}" wx:key="id">
+          <image src="{{item.pic}}" class="slide-image" mode="aspectFill" lazy-load="true" />
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="goods-info">
+      <view class="goods-info-top-container">
+        <view class="goods-profile">
+         
+          <view class="p"><text>¥</text> {{goodsDetail.basicInfo.minPrice}}</view>
+          <view wx:if="{{goodsDetail.basicInfo.originalPrice && goodsDetail.basicInfo.originalPrice > 0}}"
+            class="goods-price" style='color:#aaa;text-decoration:line-through;padding: 15rpx 0rpx 0rpx 15rpx;'>
+            <text>¥</text> {{goodsDetail.basicInfo.originalPrice}}</view>
+          
+        </view>
+        
+        <view class="goods-info-fx">
+          <view class='item'>
+            <van-icon name="share-o" size="24px" />
+            <view class="icon-title">分享</view>
+            <button open-type='share'></button>
+          </view>
+        </view>
+      </view>
+        
+    </view>
+    <van-cell custom-class="vw100 vcell" center title="{{goodsDetail.basicInfo.name}}" border="{{false}}">
+      <view class="r">{{goodsDetail.basicInfo.numberSells}}人已买</view>
+    </van-cell>
+    <van-cell title="购买数量" >
+    <view>
+      <van-stepper value="{{ buyNumber }}" min="1" max="100" bind:change="stepChange" />
+    </view>
+  </van-cell>
+  <button  bindtap="buyNow" style="width:98%;background:#ee0a24;color:#fff"
+    type="danger" >立即购买</button>
+  </scroll-view>
+</view>
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />
+<!-- <float-menu />  -->
+
+

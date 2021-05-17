@@ -1,0 +1,24 @@
+.btn {
+  margin-top: 32rpx;
+}
+.remark {
+  position:relative;
+  margin:0 auto;
+  font-size: 24rpx;
+
+}
+.row{
+  display: flex;
+  padding: 10px;
+  border-top: 1rpx solid #eee;
+}
+.row-cell-left{
+  padding-left: 10px;
+  width: 40%;
+}
+.row-cell{
+  width: 55%;
+}
+.val{
+ text-align: center;
+}

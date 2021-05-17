@@ -58,7 +58,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    return
     var isAuth = wx.getStorageSync('isAuth');
     let that = this
     console.log("app.globalData.isAuth="+isAuth);
@@ -76,6 +75,7 @@ Page({
              console.log("res.data.object"+res.data.object)
              var userInfo = wx.getStorageSync("userInfo");
              wx.setStorageSync('userId', res.data.map.userId);
+             wx.setStorageSync('userAccountsInfo', res.data.map);
              that.setData({
               userInfoStatus : 1,
               userAccounts:res.data.map,

@@ -3,7 +3,7 @@ const app = getApp();
 
 Page({
   data: {
-    carlist:[{val:"豫V63183",adddate:"2021-05-15 22:11:55"},{val:"豫V63183",adddate:"2021-05-15 22:11:55"}]
+    carlist:[]
   },
   getInputLicense:function(e){
     this.setData({
@@ -37,6 +37,27 @@ Page({
     })
   },
   onShow () {
-    
+    let that = this;
+    var userId = wx.getStorageSync('userId')
+    userId=3
+    wx.request({ 
+      url: app.globalData.url+"wash/queryCustomerBindLicense?userId="+userId,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log("res",res.data.list)
+       if(res.data.code==0){
+          that.setData({
+            carlist:res.data.list
+          })
+       }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+       }
+      }
+    })
   }
 })

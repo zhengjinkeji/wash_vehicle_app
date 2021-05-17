@@ -1,0 +1,4 @@
+<van-tabs bind:change="tabClick">
+  <van-tab wx:for="{{tabs}}" wx:key="index" title="{{item}}"></van-tab>
+</van-tabs>
+<van-empty  description="暂无优惠券" />

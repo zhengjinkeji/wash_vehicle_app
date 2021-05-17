@@ -1,0 +1,36 @@
+<import src="/template/login/index.wxml" />
+
+<view class="asset">          
+  <view class='item'>
+    <view>累计消费(元)</view>
+    <view>{{totalCost}}</view>
+  </view> 
+  <view class='item right'>
+   <view>累计时长(分钟)</view>
+    <view>{{totalTime}}</view>
+  </view>
+</view>
+
+ <view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content">
+          <view class='no-data' wx:if="{{!washlogs}}">暂无洗车记录~</view>
+          <view class='cashlogs' wx:if="{{washlogs}}" wx:for="{{washlogs}}" wx:key="{{index}}">
+            <view class='profile'>
+              <view class='typeStr'>{{ item.license }}</view>
+              <view class='dateAdd'>{{ item.create_date}}</view>
+            </view>
+            <view class='amount' style="color: red">  -{{ item.total_amount }}元 </view>
+            <view class='amount' style="color: green">  {{ item.time }} 分钟 </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 
+
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />
+<float-menu /> 

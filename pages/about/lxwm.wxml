@@ -1,0 +1,30 @@
+<view class="row" bindtap="xcsb">
+    <view class="row-cell-left">
+      <view class="">现场申报：</view>
+    </view>
+    <view class="row-cell">
+      <view class="" style="color:#ea4a4a;">188188188188</view>
+    </view>
+</view>
+<view class="row" bindtap="rjsb">
+    <view class="row-cell-left">
+      <view class="">软件申报：</view>
+    </view>
+    <view class="row-cell">
+      <view class="" style="color:#8c8ce6">188188188188</view>
+    </view>
+</view>
+  <view class="row" bindtap="swhz">
+    <view class="row-cell-left">
+      <view class="">商务合作：</view>
+    </view>
+    <view class="row-cell">
+      <view class=""  style="color:#0b8a15">188188188188</view>
+    </view>
+  </view>
+
+  <view class="row">
+    <text class="remark">
+   点击号码拨打相应电话
+  </text>
+  </view>

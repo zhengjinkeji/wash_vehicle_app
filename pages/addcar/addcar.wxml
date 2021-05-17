@@ -1,10 +1,10 @@
 <view wx:if="{{carlist}}" wx:for="{{carlist}}">
   <view class="row">
     <view class="row-cell-left">
-      <view class="val">{{item.val}}</view>
+      <view class="val">{{item.license}}</view>
     </view>
     <view class="row-cell">
-      <view class="">{{item.adddate}}</view>
+      <view class="">{{item.create_date}}</view>
     </view>
   </view>
 </view>
@@ -18,7 +18,7 @@
 </view>
 <view class="row">
   <text class="remark">
-  1、更改车牌请联系管理员！
+  1、更改车牌请联系管理员!(个人最多三辆)
   2、如果绑定车牌较多(比如公司账户名下绑定多辆),请联系商家,快速绑定!
   </text>
 </view>

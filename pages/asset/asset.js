@@ -22,7 +22,13 @@ Page({
       {typeStr:"充值",dateAdd:"2021-05-13 22:38:39",amount:100},
       {typeStr:"购买洗车",dateAdd:"2021-05-13 22:38:39",amount:100}]
   },
-
+//用户充值
+addBill:function(e){
+  wx.redirectTo({
+    url: '/pages/addbill/addbill'
+  })
+  return;
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -50,15 +56,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    return
-    AUTH.checkHasLogined().then(isLogined => {
-      this.setData({
-        wxlogin: isLogined
-      })
-      if (isLogined) {
-        this.doneShow();
+    let that = this;
+    var userId = wx.getStorageSync('userId')
+    wx.request({ 
+      url: app.globalData.url+"wash/queryCustomerAcountsApp?userId="+userId,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log("res",res.data.list)
+       if(res.data.code==0){
+          that.setData({
+            cashlogs:res.data.list,
+            totalCost:res.data.map.total_cost,
+            totalCharge:res.data.map.total_charge,
+            totalTime:res.data.map.total_time,
+            money:res.data.map.money
+          })
+       }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+          
+        })
+       }
       }
     })
+  
   },
   doneShow: function () {
     const _this = this

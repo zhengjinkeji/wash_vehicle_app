@@ -241,7 +241,7 @@ Page({
     // AUTH.register(Page,company,account,password)
     // return
     wx.request({
-      url: app.globalData.url + 'customerRegister?userOpenId='+app.globalData.userOpenId+'&mobilePhone='+mobilePhone+'&license='+license+'&tenantId='+app.globalData.tenantId+'&ownerName='+ownerName,
+      url: app.globalData.url + 'customerRegister?userOpenId='+app.globalData.userOpenId+'&mobilePhone='+mobilePhone+'&license='+license+'&tenantId='+app.globalData.tenantId+'&ownerName='+ownerName+'&avatarUrl='+this.data.avatarUrl,
       success: function (res) {
         if (res.data.code == 0) {
           wx.showModal({

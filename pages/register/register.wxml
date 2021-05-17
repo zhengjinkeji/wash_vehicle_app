@@ -30,7 +30,7 @@ subPassword ：确认密码
             <view class="">车牌:</view>
           </view>
           <view class="row-cell">
-            <input class="" placeholder="请输入绑定车牌" type="text" maxlength="7" value="{{license}}" focus="true" name="license"/>
+            <input class="" placeholder="请输入绑定车牌" type="text" maxlength="8" value="{{license}}" focus="true" name="license"/>
           </view>
         </view>
         <view class="row">
