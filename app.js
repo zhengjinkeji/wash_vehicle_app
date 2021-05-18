@@ -78,14 +78,56 @@ App({
       }
     })
 
-
+    wx.request({ 
+      url: app.globalData.url+"sysAbout/querySysFile?tenantId="+app.globalData.tenantId,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log("res",res.data.list)
+       if(res.data.code==0){
+         var list = res.data.list
+         if( list!= null){
+            for(var i=0;i<list.length;i++){
+              if(list[i].file_type==1000){
+                that.setData({
+                  categories:that.data.categories.concat(list[i])
+                })
+              }
+              if(list[i].file_type==1001){
+                that.setData({
+                  banners:that.data.banners.concat(list[i])
+                })
+              }
+              if(list[i].file_type==1002){
+                that.setData({
+                  guanggao:list[i]
+                })
+              }
+              if(list[i].file_type==1003){
+                that.setData({
+                  noticeList:that.data.noticeList.concat(list[i])
+                })
+              }
+            }
+         }
+         
+       }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+          
+        })
+       }
+      }
+    })
 
   },
   globalData: {
     userOpenId:null,
     userInfo: null,
     //url:"http://121.4.58.214/guns/",
-    url:"https://gaesh.com/guns/",
+    url:"https://www.gaesh.com/guns/",
     appId:null,
     appSecret:'',
     userOpenId:'',
