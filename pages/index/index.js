@@ -53,49 +53,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    console.log("App.globalData.navHeight", app.globalData.navHeight)
-    console.log("App.globalData.navTop", app.globalData.navTop)
-    console.log("App.globalData.windowHeight", app.globalData.windowHeight)
-    this.setData({
-      navHeight: app.globalData.navHeight,
-      navTop: app.globalData.navTop,
-      windowHeight: app.globalData.windowHeight,
-      menuButtonObject: app.globalData.menuButtonObject //小程序胶囊信息
-    })
     let that = this;
-    wx.request({ 
-      url: app.globalData.url+"wash/queryCustomerWashListForBanner?tenantId="+app.globalData.tenantId,
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success (res) {
-        console.log("goodsDynamic",res.data.list)
-       if(res.data.code==0){
-        that.setData({
-          goodsDynamic:res.data.list
-        })
-       }else{
-        wx.showToast({
-          title: res.data.message,
-          icon: 'none'
-          
-        })
-       }
-      }
-    })
     that.setData({
       banners:[],
       categories:[],
@@ -145,6 +103,49 @@ Page({
        }
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    console.log("App.globalData.navHeight", app.globalData.navHeight)
+    console.log("App.globalData.navTop", app.globalData.navTop)
+    console.log("App.globalData.windowHeight", app.globalData.windowHeight)
+    this.setData({
+      navHeight: app.globalData.navHeight,
+      navTop: app.globalData.navTop,
+      windowHeight: app.globalData.windowHeight,
+      menuButtonObject: app.globalData.menuButtonObject //小程序胶囊信息
+    })
+    let that = this;
+    wx.request({ 
+      url: app.globalData.url+"wash/queryCustomerWashListForBanner?tenantId="+app.globalData.tenantId,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log("goodsDynamic",res.data.list)
+       if(res.data.code==0){
+        that.setData({
+          goodsDynamic:res.data.list
+        })
+       }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+          
+        })
+       }
+      }
+    })
+    
   },
 
   /**
