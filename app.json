@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/setting/setting",
     "pages/about/about",
-    "pages/addbill/addbill",
     "pages/center/center",
     "pages/apply/index",
     "pages/addcar/addcar",
@@ -14,7 +13,9 @@
     "pages/register/register",
     "pages/notice/show",
     "pages/about/lxwm",
-    "pages/yhq/index"
+    "pages/yhq/index",
+    "pages/addbill/index",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

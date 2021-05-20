@@ -7,8 +7,8 @@ Page({
    */
   data: {
     //判断用户是否登录
-    userInfoStatus: 0, // 0 未读取 1 没有详细信息 2 有详细信息
-    userAccounts:null
+    userAccounts:null,
+    isAuth:0
   },
 
   getUserProfile(e) {
@@ -22,8 +22,7 @@ Page({
         var userInfo = res.userInfo;
         wx.setStorageSync('userInfo', userInfo)
         this.setData({
-          userInfoStatus : 1,
-          userInfo :userInfo
+          isAuth:1
         })
         wx.setStorageSync('isAuth', 1)
         that.onShow();
@@ -44,7 +43,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**
@@ -58,14 +57,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+   
     var isAuth = wx.getStorageSync('isAuth');
+    this.setData({
+      isAuth:isAuth
+    })
     let that = this
     console.log("app.globalData.isAuth="+isAuth);
     if(isAuth==1){
-      console.log("已授权");
-       //授权后查询用户是否注册过
+      var userId = wx.getStorageSync('userId')
+      console.log("userId:",userId)
+      if(userId!=""&&userId!=null && userId!=undefined){
+      //授权后查询用户是否注册过
        wx.request({
-        url:app.globalData.url+"wash/queryCustomerDetails?userOpenId="+app.globalData.userOpenId,
+        url:app.globalData.url+"wash/queryCustomerDetails?userId="+userId,
         header: {
           'content-type': 'application/json' // 默认值
         },
@@ -77,7 +82,6 @@ Page({
              wx.setStorageSync('userId', res.data.map.userId);
              wx.setStorageSync('userAccountsInfo', res.data.map);
              that.setData({
-              userInfoStatus : 1,
               userAccounts:res.data.map,
               userInfo :userInfo
             })
@@ -91,6 +95,14 @@ Page({
           }
         }
       })
+    }else{
+       
+        wx.redirectTo({
+          url: '/pages/login/login'
+        })
+    }
+
+      
     }else{
      console.log("干")
      that.setData({

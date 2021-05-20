@@ -1,4 +1,4 @@
-<block wx:if="{{ userInfoStatus == 0 }}">
+<block wx:if="{{ isAuth == 0 }}">
   <view class="login-box">
     <image class="logo" src="/images/wx.jpg" mode="widthFix"></image>
     <view class="line"></view>
@@ -9,7 +9,7 @@
     </view>
   </view>
 </block>  
-<block wx:if="{{ userInfoStatus == 1 }}">
+<block wx:if="{{ isAuth == 1 }}">
   <view class="header-box">
     <image class="avatar" src="{{ userInfo.avatarUrl }}" mode="aspectFill"></image>
     <view class="r">

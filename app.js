@@ -67,6 +67,7 @@ App({
             })
           }
         })
+
       }else{
         wx.showToast({
           //获取app秘钥失败
@@ -82,8 +83,8 @@ App({
   globalData: {
     userOpenId:null,
     userInfo: null,
-    //url:"http://121.4.58.214/guns/",
-    url:"https://www.gaesh.com/guns/",
+    //url:"https://www.gaesh.com/guns/",
+    url:"http://localhost:9666/",
     appId:null,
     appSecret:'',
     userOpenId:'',

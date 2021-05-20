@@ -25,7 +25,7 @@ Page({
 //用户充值
 addBill:function(e){
   wx.redirectTo({
-    url: '/pages/addbill/addbill'
+    url: '/pages/addbill/index'
   })
   return;
 },
