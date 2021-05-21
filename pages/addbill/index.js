@@ -15,8 +15,11 @@ Page({
     var chargeAmount = e.currentTarget.dataset.charge_amount;
     var sendAmount = e.currentTarget.dataset.send_amount;
     var amount = chargeAmount+sendAmount;
+    //微信单位是分
     this.setData({
-      amount: amount
+      chargeAmount: chargeAmount*100,
+      amount:amount,
+      sendAmount:sendAmount*100
     });
    //
   },
@@ -41,8 +44,8 @@ Page({
   bindSave: function (e) {
     const that = this;
     const amount = e.detail.value.amount;
-    console.log("app.globalData.isAuth"+app.globalData.userOpenId)
-    if (app.globalData.isAuth == 0) {
+    var isAuth = wx.getStorageSync('isAuth');
+    if (isAuth == 0) {
       wx.showModal({
         title: '用户未授权登录!',
         content: '请切换主页右下角"我的"进行授权登录',
@@ -66,10 +69,11 @@ Page({
       })
       return
     }
-   //充值
+   //充值 注意:微信的单位是分
    var money = amount*100;
+   money = 1
    wx.request({
-    url: app.globalData.url+"wxPay/wxPay?money="+money+"&userOpenId="+app.globalData.userOpenId+"&appid="+app.globalData.tenantId,
+    url: app.globalData.url+"wxPay/wxPay?money="+money+"&userOpenId="+app.globalData.userOpenId+"&appid="+app.globalData.tenantId+"&chargeAmount="+this.data.chargeAmount+"&sendAmount="+this.data.sendAmount,
     header: {
       'content-type': 'application/json' // 默认值
     },
@@ -136,6 +140,7 @@ Page({
     }
   })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
