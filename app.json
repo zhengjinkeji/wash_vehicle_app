@@ -15,7 +15,8 @@
     "pages/about/lxwm",
     "pages/yhq/index",
     "pages/addbill/index",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/remote/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

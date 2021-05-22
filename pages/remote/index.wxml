@@ -1,0 +1,25 @@
+
+<view wx:if='{{washRoomList}}'> 
+  <view  wx:for='{{washRoomList}}' wx:for-item="item">
+  <view class="row">
+    <view class="row-cell-left">
+      <view class="">车房:</view>
+    </view>
+    <view class="row-cell">
+      <view style="color:#ea4a4a;">{{item.room_name}}编号:{{item.id}}</view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="row-phone">
+      <view class="">电话:</view>
+    </view>
+    <view class="row-input">
+      <input data-mobilePhone class="" name="mobilePhone" class="input" type="digit" value="{{mobilePhone}}" 
+          placeholder="输入来电电话" />  
+    </view>
+    <button bindtap="handleOpen" class="row-button" disabled="{{disabled}}">协助开门</button>
+  </view>
+   
+</view>
+</view>
+

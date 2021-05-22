@@ -1,0 +1,43 @@
+.btn {
+  margin-top: 32rpx;
+}
+.remark {
+  position:relative;
+  margin:0 auto;
+  font-size: 24rpx;
+
+}
+.row{
+  display: flex;
+  padding: 10px;
+  border-top: 1rpx solid #eee;
+}
+.cell-left{
+  padding-left: 10px;
+  width: 40%;
+}
+.cell{
+  width: 55%;
+}
+.val{
+ text-align: center;
+}
+.row-phone{
+  padding: 10px;
+  padding-left: 10px;
+  width: 15%;
+  color:greenyellow;
+  font-size: 24rpx;
+ }
+ .row-input{
+  padding: 10px;
+  width: 35%;
+  border-left: 1rpx solid black;
+  border-right: 0.5rpx solid black;
+  font-size: 24rpx;
+ }
+ .row-button{
+  padding: 10px;
+  width: 40%;
+  font-size: 24rpx;
+ }

@@ -83,10 +83,10 @@ App({
   globalData: {
     userOpenId:null,
     userInfo: null,
-    url:"https://www.gaesh.com/guns/",
-    //url:"http://localhost:9666/",
+    //url:"https://www.gaesh.com/guns/",
+    url:"http://localhost:9666/",
     appId:null,
-    appSecret:'',
+    appSecret:'', 
     userOpenId:'',
     isAuth:0
   }
