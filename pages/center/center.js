@@ -80,6 +80,7 @@ Page({
              console.log("res.data.object"+res.data.object)
              var userInfo = wx.getStorageSync("userInfo");
              wx.setStorageSync('userId', res.data.map.userId);
+             wx.setStorageSync('isAdmin', res.data.map.isAdmin);
              wx.setStorageSync('userAccountsInfo', res.data.map);
              that.setData({
               userAccounts:res.data.map,

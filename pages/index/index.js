@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isAdmin:false,
     banners:[
       //{picUrl:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhao.kujiameng.com%2Fupload%2Farticle%2F20151008%2F60108124171444299117.jpg&refer=http%3A%2F%2Fhao.kujiameng.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623665389&t=6e961e0330a24944e17a2c3e084a592b"},{picUrl:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhao.kujiameng.com%2Fupload%2Farticle%2F20151008%2F60108124171444299117.jpg&refer=http%3A%2F%2Fhao.kujiameng.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623665389&t=6e961e0330a24944e17a2c3e084a592b"}
     ],
@@ -103,6 +104,12 @@ Page({
        }
       }
     })
+    var admin = wx.getStorageSync('isAdmin');
+    if(admin==1){
+      this.setData({
+        isAdmin:true
+      })
+    }
   },
 
   /**

@@ -71,7 +71,7 @@ Page({
     }
    //充值 注意:微信的单位是分
    var money = amount*100;
-   money = 1
+   //money = 1
    wx.request({
     url: app.globalData.url+"wxPay/wxPay?money="+money+"&userOpenId="+app.globalData.userOpenId+"&appid="+app.globalData.tenantId+"&chargeAmount="+this.data.chargeAmount+"&sendAmount="+this.data.sendAmount,
     header: {

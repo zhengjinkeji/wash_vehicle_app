@@ -29,22 +29,20 @@ Page({
     })
   },
   handleOpen: function (e) {
-    // var roomId = e.currentTarget.dataset.roomId;
-     var mobilePhone = e.currentTarget.dataset.mobilePhone;
-
-    console.log("roomId"+this.data.id)
-    console.log("mobilePhone"+mobilePhone)
-    if ("" == this.data.mobilePhone) {
-        wx.showToast({
-          title: '请输入来电人电话',
-          icon: 'none'
-        })
-        return;
-    }
+    console.log(e)
+    var roomId = e.currentTarget.dataset.roomid;
+    wx.showModal({
+      title: '是否远程开门!',
+      content: '',
+      showCancel: true,
+      success: function (res) {
+     if (res.confirm) {//这里是点击了确定以后
+ 
+   
     var userId = wx.getStorageSync('userId');
     let that = this;
     wx.request({
-      url: app.globalData.url+"wash/manageHandleOpen?tenantId="+app.globalData.tenantId+"&userId="+userId+"&roomId="+this.data.id+"&mobilePhone="+mobilePhone,
+      url: app.globalData.url+"wash/manageHandleOpen?tenantId="+app.globalData.tenantId+"&userId="+userId+"&roomId="+roomId,
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -54,9 +52,6 @@ Page({
             title: '协助开门成功',
             icon: 'none'
           })
-          that.setData({
-            disabled:true
-          })
         }else{
             wx.showToast({
               title: '协助开门失败!',
@@ -65,6 +60,16 @@ Page({
           }
         }
     })
+ 
+        } else {//这里是点击了取消以后
+ 
+         return;
+ 
+        }
+ 
+      }
+    })
+    
   },
 
   /**

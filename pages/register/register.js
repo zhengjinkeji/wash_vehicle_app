@@ -244,6 +244,8 @@ Page({
       url: app.globalData.url + 'customerRegister?userOpenId='+app.globalData.userOpenId+'&mobilePhone='+mobilePhone+'&license='+license+'&tenantId='+app.globalData.tenantId+'&ownerName='+ownerName+'&avatarUrl='+this.data.avatarUrl,
       success: function (res) {
         if (res.data.code == 0) {
+          wx.setStorageSync('userId',res.data.map.userId);
+          wx.setStorageSync('isAuth',1);
           wx.showModal({
             title: '注册状态',
             content: '注册成功!',
@@ -255,7 +257,7 @@ Page({
               })
             }
           })
-        }else{
+        }else{ 
           wx.showToast({
             title: res.data.message,
             icon: 'none'

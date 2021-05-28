@@ -37,6 +37,14 @@
         <view class="category-title">{{item.description}}</view>
       </view>
     </view>
+    <!--管理员可见手动开门-->
+    <view wx:if="{{isAdmin}}" class="category-list">
+    <view class="category-column" bindtap="tabClick"
+        data-link="/pages/remote/index" >
+        <image mode="aspectFill" class="category-imgbox" src="../../images/kaimen.png"></image>
+        <view class="category-title">手动开门</view>
+      </view>
+  </view>
   </view>
 </view>
 <view class="notice-box" wx:if="{{noticeList}}">

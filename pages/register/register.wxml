@@ -55,7 +55,7 @@ subPassword ：确认密码
           </view>
         </view>
         <view class="btn"> 
-          <button style="width:80%;" type="primary" formType="submit">注册</button> 
+          <button style="width:40%;margin-top:20px" type="primary" formType="submit">注册</button> 
         </view>
       </view>
     </view>

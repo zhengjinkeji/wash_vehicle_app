@@ -45,7 +45,7 @@
               <view  wx:if="{{ item.type==2 }}" class='typeStr'>消费</view>
               <view class='dateAdd'>{{ item.create_date}}</view>
             </view>
-            <view class='amount' style="color: green">+ {{ item.money }}元 </view>
+            <view class='amount' style="color: green">+ {{ item.charge_amount }}元 </view>
           </view>
         </view>
       </view>

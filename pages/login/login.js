@@ -11,6 +11,11 @@ Page({
     inputCode:'',
     isDisable:false
   },
+  goReg:function(){
+    wx.redirectTo({
+      url: '/pages/register/register',
+    })
+  },
   onLoad: function () {
     var that = this;
     const userInfo = wx.getStorageSync('userInfo')
@@ -183,24 +188,24 @@ Page({
     wx.request({
       url: app.globalData.url + 'customerLogin?mobilePhone='+mobilePhone,
       success: function (res) {
+        console.log("res.data.code"+res.data.code)
         if (res.data.code == 0) {
+          wx.setStorageSync("userId",res.data.map.userId)
           wx.showModal({
             title: '',
             content: '登录成功!',
             showCancel:false,
             success:function(){ 
               //app.globalData.account=account
-              wx.setStorageSync("userId",res.data.map.userId)
               wx.switchTab({
                 url: '/pages/center/center'
               })
             }
           })
         }else{
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none'
-          })
+        wx.redirectTo({
+          url: '/pages/register/register',
+        })    
         }
       }
     })
