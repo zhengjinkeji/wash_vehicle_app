@@ -42,8 +42,8 @@ subPassword ：确认密码
           </view>
         </view>
         <view class="btn"> 
-          <button style="width:40%;float:left;margin-left:14px" type="primary" formType="submit">登录</button> 
-          <button bindtap="goReg" style="width:40%;float:left;margin-left:14px" type="primary">注册</button> 
+          <button style="width:40%;margin:0 auto" type="primary" formType="submit">登录</button> 
+          <!-- <button bindtap="goReg" style="width:40%;float:left;margin-left:14px" type="primary">注册</button>  -->
         </view>
       </view>
     </view>

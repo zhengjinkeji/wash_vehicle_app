@@ -16,7 +16,26 @@ Page({
       url: '/pages/register/register',
     })
   },
+  onShow:function(){
+    wx.showModal({
+      title: '是否已经注册账户',
+      content: '已注册点击登录 , 未注册点击注册',
+      cancelText:'登录',
+      confirmText:"注册",
+      success (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/register/register',
+          })  
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   onLoad: function () {
+   
+ 
     var that = this;
     const userInfo = wx.getStorageSync('userInfo')
     console.log("userInfo",userInfo)
@@ -203,9 +222,21 @@ Page({
             }
           })
         }else{
-        wx.redirectTo({
-          url: '/pages/register/register',
-        })    
+          wx.showModal({
+            title: '用户未注册',
+            content: '用户未注册',
+            cancelText:'取消',
+            confirmText:"去注册",
+            success (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/register/register',
+                })  
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
         }
       }
     })

@@ -35,11 +35,22 @@ Page({
     }
   },
   clearStorage(){
-    wx.clearStorageSync()
-    wx.showToast({
-      title: '已清除',
-      icon: 'success'
+    wx.showModal({
+      title: '是否清除缓存',
+      content: '清除缓存将使登录等信息失效,谨慎操作',
+      success (res) {
+        if (res.confirm) {
+          wx.clearStorageSync()
+          wx.showToast({
+            title: '已清除',
+            icon: 'success'
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
+  
   },
   goadmin() {
     wx.navigateToMiniProgram({
